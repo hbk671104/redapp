@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       home: Main(),
       routes: {
         '/main': (BuildContext context) => Main(),
-        '/list': (BuildContext context) => List()
+        '/content_list': (BuildContext context) => ContentList()
       },
     );
   }

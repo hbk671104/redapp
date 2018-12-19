@@ -4,23 +4,17 @@ import 'package:redapp/src/component/navbar.dart';
 class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return CupertinoPageScaffold(
-      navigationBar: NavBar(
+        navigationBar: NavBar(
           middle: Text('党政学习'),
-          trailing: GestureDetector(
-            child: Text('下一页'),
-            onTap: () {
-              Navigator.of(context).pushNamed('/list');
-            },
-          )),
-      child: ListView(
-        children: <Widget>[
-          Container(
-            child: Image.network('https://flutter.io/images/owl.jpg'),
-          )
-        ],
-      ),
-    );
+        ),
+        child: Center(
+          child: GestureDetector(
+              child: Image.network(
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/320px-Flag_of_the_People%27s_Republic_of_China.svg.png'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/content_list');
+              }),
+        ));
   }
 }
