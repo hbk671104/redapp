@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:redapp/src/component/navbar.dart';
 
 class List extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('列表页'),
+      navigationBar: NavBar(
+        middle: Text('讲话/外交'),
       ),
       child: ListView(
         children: <Widget>[

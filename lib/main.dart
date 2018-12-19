@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'src/container/main/index.dart';
-import 'src/container/list/index.dart';
+import 'package:redapp/src/container/main/index.dart';
+import 'package:redapp/src/container/list/index.dart';
 
 void main() => runApp(MyApp());
 
