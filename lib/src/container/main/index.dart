@@ -5,9 +5,20 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return CupertinoPageScaffold(
-      child: Text('hah1'),
       navigationBar: CupertinoNavigationBar(
-        middle: Text('红又专！'),
+          middle: Text('红又专！'),
+          trailing: GestureDetector(
+            child: Text('下一页'),
+            onTap: () {
+              Navigator.of(context).pushNamed('/list');
+            },
+          )),
+      child: ListView(
+        children: <Widget>[
+          Container(
+            child: Image.network('https://flutter.io/images/owl.jpg'),
+          )
+        ],
       ),
     );
   }

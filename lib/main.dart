@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'src/container/main/index.dart';
+import 'src/container/list/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,10 @@ class MyApp extends StatelessWidget {
     return CupertinoApp(
       title: '红又专',
       home: Main(),
-      routes: {'/main': (BuildContext context) => Main()},
+      routes: {
+        '/main': (BuildContext context) => Main(),
+        '/list': (BuildContext context) => List()
+      },
     );
   }
 }
