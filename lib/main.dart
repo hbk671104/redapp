@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return CupertinoApp(
       title: '红又专',
       home: Main(),
-      // routes: {'/a': (BuildContext context) => Main()},
+      routes: {'/main': (BuildContext context) => Main()},
     );
   }
 }
