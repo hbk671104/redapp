@@ -51,6 +51,7 @@ class ContentListState extends State<ContentList> {
     final String path = item['thumbnail_path'];
     return CachedNetworkImage(
       imageUrl: path,
+      placeholder: CupertinoActivityIndicator(),
       fit: BoxFit.cover,
       fadeInDuration: Duration(milliseconds: 250),
     );
@@ -64,7 +65,7 @@ class ContentListState extends State<ContentList> {
       ),
       child: ListView.builder(
           itemCount: data == null ? 0 : data.length,
-          itemExtent: 360,
+          itemExtent: 396,
           itemBuilder: (BuildContext context, int index) =>
               this.buildItem(context, index)),
     );
