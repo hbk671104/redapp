@@ -59,6 +59,7 @@ class ContentListState extends State<ContentList> {
       ),
       child: ListView.builder(
           itemCount: data == null ? 0 : data.length,
+          itemExtent: 40,
           itemBuilder: (BuildContext context, int index) =>
               this.buildItem(context, index)),
     );
