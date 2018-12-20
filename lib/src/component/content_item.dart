@@ -25,7 +25,13 @@ class ContentItem extends StatelessWidget {
                       width: 114.5,
                       height: 85.5,
                       imageUrl: path,
-                      placeholder: CupertinoActivityIndicator(),
+                      placeholder: SizedBox(
+                        width: 114.5,
+                        height: 85.5,
+                        child: Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
+                      ),
                       fit: BoxFit.cover,
                       fadeInDuration: Duration(milliseconds: 250),
                     ),
