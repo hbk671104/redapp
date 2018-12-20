@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:redapp/src/container/main/index.dart';
 import 'package:redapp/src/container/list/index.dart';
+// import 'package:redapp/src/container/detail/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       home: Main(),
       routes: {
         '/main': (BuildContext context) => Main(),
-        '/content_list': (BuildContext context) => ContentList()
+        '/content_list': (BuildContext context) => ContentList(),
+        // '/content_detail': (BuildContext context) => ContentDetail()
       },
     );
   }

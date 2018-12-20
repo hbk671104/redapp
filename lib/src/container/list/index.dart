@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:convert';
+
+import 'package:redapp/src/container/detail/index.dart';
 import 'package:redapp/src/component/navbar.dart';
+import 'package:redapp/src/component/content_item.dart';
 
 class ContentList extends StatefulWidget {
   @override
@@ -25,7 +27,11 @@ class ContentListState extends State<ContentList> {
   }
 
   void loadData() async {
-    final request = await http.get('http://api.yanse.info/topics?page=$page');
+    final request = await http.get('http://api.yanse.info/topics?');
+    if (request.statusCode != 200) {
+      return;
+    }
+
     final responseData = jsonDecode(request.body);
     setState(() {
       if (page == 1) {
@@ -46,15 +52,20 @@ class ContentListState extends State<ContentList> {
     this.loadData();
   }
 
+  void handleItemPress(item) {
+    Navigator.of(context).push(CupertinoPageRoute(
+        builder: (BuildContext context) => ContentDetail(
+              item: item,
+            )));
+  }
+
   Widget buildItem(BuildContext context, int index) {
     final Map item = data[index];
-    final String path = item['thumbnail_path'];
-    return CachedNetworkImage(
-      imageUrl: path,
-      placeholder: CupertinoActivityIndicator(),
-      fit: BoxFit.cover,
-      fadeInDuration: Duration(milliseconds: 250),
-    );
+    return ContentItem(
+        item: item,
+        onPress: () {
+          this.handleItemPress(item);
+        });
   }
 
   @override
@@ -65,7 +76,7 @@ class ContentListState extends State<ContentList> {
       ),
       child: ListView.builder(
           itemCount: data == null ? 0 : data.length,
-          itemExtent: 396,
+          // itemExtent: 396,
           itemBuilder: (BuildContext context, int index) =>
               this.buildItem(context, index)),
     );
