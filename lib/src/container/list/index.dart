@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:convert';
 import 'package:redapp/src/component/navbar.dart';
 
@@ -48,7 +49,11 @@ class ContentListState extends State<ContentList> {
   Widget buildItem(BuildContext context, int index) {
     final Map item = data[index];
     final String path = item['thumbnail_path'];
-    return Image.network(path);
+    return CachedNetworkImage(
+      imageUrl: path,
+      fit: BoxFit.cover,
+      fadeInDuration: Duration(milliseconds: 250),
+    );
   }
 
   @override
@@ -59,7 +64,7 @@ class ContentListState extends State<ContentList> {
       ),
       child: ListView.builder(
           itemCount: data == null ? 0 : data.length,
-          itemExtent: 40,
+          itemExtent: 360,
           itemBuilder: (BuildContext context, int index) =>
               this.buildItem(context, index)),
     );
