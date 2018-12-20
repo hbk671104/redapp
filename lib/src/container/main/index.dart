@@ -8,13 +8,12 @@ class Main extends StatelessWidget {
         navigationBar: NavBar(
           middle: Text('党政学习'),
         ),
-        child: Center(
-          child: GestureDetector(
-              child: Image.network(
-                  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/320px-Flag_of_the_People%27s_Republic_of_China.svg.png'),
-              onTap: () {
-                Navigator.of(context).pushNamed('/content_list');
-              }),
-        ));
+        child: SafeArea(
+            child: Center(
+                child: CupertinoButton(
+                    child: Text('开始学习', style: TextStyle(fontSize: 40)),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/content_list');
+                    }))));
   }
 }

@@ -15,17 +15,18 @@ class ContentDetail extends StatelessWidget {
         navigationBar: NavBar(
           middle: Text(item['name']),
         ),
-        child: Container(
+        child: SafeArea(
           child: Swiper(
             itemCount: images.length,
             itemBuilder: (BuildContext context, int index) {
-              final image = images[index];
+              final String image = images[index];
               return CachedNetworkImage(
-                imageUrl: image,
+                imageUrl: image.split('?')[0],
                 placeholder: CupertinoActivityIndicator(),
-                // fit: BoxFit.contain,
               );
             },
+            viewportFraction: 0.8,
+            scale: 0.9,
           ),
         ));
   }
