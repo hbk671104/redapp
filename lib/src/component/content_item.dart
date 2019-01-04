@@ -9,8 +9,9 @@ class ContentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String title = item['name'];
-    final String path = item['thumbnail_path'];
+    final String title = item['title'];
+    final String source = item['source'];
+    final String path = item['cover_url'];
 
     return GestureDetector(
         onTap: onPress,
@@ -51,9 +52,10 @@ class ContentItem extends StatelessWidget {
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromRGBO(0, 0, 0, 0.85)),
+                                maxLines: 2,
                               )),
                               Container(
-                                  child: Text(title,
+                                  child: Text(source,
                                       style: TextStyle(
                                           fontSize: 12,
                                           height: 1.5,

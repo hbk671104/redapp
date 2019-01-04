@@ -27,7 +27,8 @@ class ContentListState extends State<ContentList> {
   }
 
   void loadData() async {
-    final request = await http.get('http://api.yanse.info/topics?');
+    final request = await http.get(
+        'http://api-dev.red.hotnode.cn/posts?keywords=%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF');
     if (request.statusCode != 200) {
       return;
     }

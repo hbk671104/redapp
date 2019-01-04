@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:redapp/src/component/navbar.dart';
 
 class ContentDetail extends StatelessWidget {
@@ -10,24 +8,21 @@ class ContentDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List images = item['thumbnail_images'];
+    // final List images = item['thumbnail_images'];
+    final String html = item['content'];
     return CupertinoPageScaffold(
         navigationBar: NavBar(
-          middle: Text(item['name']),
-        ),
-        child: SafeArea(
-          child: Swiper(
-            itemCount: images.length,
-            itemBuilder: (BuildContext context, int index) {
-              final String image = images[index];
-              return CachedNetworkImage(
-                imageUrl: image.split('?')[0],
-                placeholder: CupertinoActivityIndicator(),
-              );
-            },
-            viewportFraction: 0.8,
-            scale: 0.9,
+          middle: Text(
+            item['title'],
+            maxLines: 1,
           ),
+        ),
+        child: ListView(
+          children: <Widget>[
+            HtmlView(
+              data: html,
+            )
+          ],
         ));
   }
 }
